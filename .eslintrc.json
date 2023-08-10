@@ -1,3 +1,10 @@
 {
-  "extends": "next/core-web-vitals"
+	"extends": ["next", "next/core-web-vitals", "eslint:recommended", "prettier"],
+	"globals": {
+		"React": "readonly"
+	},
+	"rules": {
+		// personal custom which allows you to prefix variables with an underscore _ if you have declared them but not used them in the code.
+		"no-unused-vars": [2, { "args": "after-used", "argsIgnorePattern": "^_" }]
+	}
 }
