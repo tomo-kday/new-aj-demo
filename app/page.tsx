@@ -23,6 +23,7 @@ const fetchData = async (): Promise<SearchProduct[]> => {
 };
 
 export default async function Home() {
+	// const [first, setfirst] = useState()
 	const products = await fetchData();
 	return (
 		<main className={styles.main}>
