@@ -4,6 +4,7 @@ import { SearchProduct } from "../types/api/searchProduct";
 import { Routes } from "../constants";
 import FavoriteButton from "../components/common/favoriteButton/favoriteButton";
 import Stars from "../components/common/stars/stars";
+import Calendar from "../components/calendar/calendar";
 
 // since this data is not cached, this function will fire on user’s request every time.
 const fetchData = async (): Promise<SearchProduct[]> => {
@@ -27,12 +28,9 @@ export default async function Home() {
 		<main className={styles.main}>
 			<section>
 				{products.map((item) => (
-					<>
+					<div className={styles.container} key={item.plan_id}>
 						{/* header */}
-						<a
-							key={item.plan_id}
-							href={`${Routes.SITE.BASEURL}/publish/plan/${item.plan_id}`}
-						>
+						<a href={`${Routes.SITE.BASEURL}/publish/plan/${item.plan_id}`}>
 							{item.plan_name}
 						</a>
 						<div className={styles.innerContainer}>
@@ -83,18 +81,11 @@ export default async function Home() {
 								)}
 							</div>
 						</div>
-					</>
-					// <Card key={item.plan_id} item={item} handleClick={handleClick} />
+						{/* Calendar */}
+						<Calendar calendars={item.calendars} />
+					</div>
 				))}
 			</section>
-			{/* <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            /> */}
 		</main>
 	);
 }
