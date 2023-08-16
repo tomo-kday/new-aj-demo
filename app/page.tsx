@@ -43,6 +43,7 @@ export default async function Home() {
 									height={198}
 									priority
 								/>
+
 								<FavoriteButton />
 							</div>
 							<div className={styles.rightComponent}>
