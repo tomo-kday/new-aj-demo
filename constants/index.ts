@@ -2,6 +2,7 @@ export const Routes = {
 	SITE: {
 		BASEURL: "https://activityjapan.com",
 		HOME: "/",
+		PLAN: "/publish/plan",
 	},
 	API: {
 		SEARCH: "/api/search/",
