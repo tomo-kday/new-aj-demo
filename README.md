@@ -13,4 +13,8 @@ https://typicode.github.io/husky/getting-started.html
 `$ pnpm add -D lint-staged`
 `$ npx husky add .husky/pre-commit "npx lint-staged"`
 `$ npx husky add .husky/pre-push "pnpm build`
-`npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'`
+`$ npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'`
+
+`✖ pnpm run lint --fix --file src/app/page.tsx:
+Failed to load config "prettier" to extend from.`
+https://stackoverflow.com/a/61943206
