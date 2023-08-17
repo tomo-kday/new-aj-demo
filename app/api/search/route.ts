@@ -1,6 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next";
+// Notice from where NextResponse is imported:
+import { NextResponse } from "next/server";
 
-// works as route
-export default function GET(_req: NextApiRequest, res: NextApiResponse) {
-	res.status(200).json("okay");
+// Notice the function definition:
+export async function GET(_request: Request) {
+	return NextResponse.json({ message: "OK" });
 }
