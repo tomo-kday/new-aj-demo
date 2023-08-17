@@ -1,10 +1,11 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { SearchProduct } from "../types/api/searchProduct";
-import { Routes } from "../constants";
-import FavoriteButton from "../components/common/favoriteButton/favoriteButton";
-import Stars from "../components/common/stars/stars";
-import Calendar from "../components/calendar/calendar";
+import { SearchProduct } from "@/types/api/searchProduct";
+import { Routes } from "@/constants";
+import FavoriteButton from "@/components/common/favoriteButton/favoriteButton";
+import Stars from "@/components/common/stars/stars";
+import Calendar from "@/components/calendar/calendar";
+import Link from "next/link";
 
 // since this data is not cached, this function will fire on user’s request every time.
 const fetchData = async (): Promise<SearchProduct[]> => {
@@ -31,9 +32,13 @@ export default async function Home() {
 				{products.map((item) => (
 					<div className={styles.container} key={item.plan_id}>
 						{/* header */}
-						<a href={`${Routes.SITE.BASEURL}/publish/plan/${item.plan_id}`}>
+						<Link
+							key={item.plan_id}
+							href={`${Routes.SITE.PLAN}/${item.plan_id}`}
+							data-test-id="plan-link"
+						>
 							{item.plan_name}
-						</a>
+						</Link>
 						<div className={styles.innerContainer}>
 							<div className={styles.leftContainer}>
 								<Image

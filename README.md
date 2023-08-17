@@ -18,3 +18,6 @@ https://typicode.github.io/husky/getting-started.html
 `✖ pnpm run lint --fix --file src/app/page.tsx:
 Failed to load config "prettier" to extend from.`
 https://stackoverflow.com/a/61943206
+
+Don't have any cypress related code in pack.json
+npx cypress open
