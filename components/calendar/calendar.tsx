@@ -72,10 +72,7 @@ export default function Calendar({ calendars }: CalendarProps) {
 		<div className={styles.container}>
 			{Object.entries(calendars).map(([date, set]) => {
 				const { status, week_num } = set;
-				console.log("🚀 ~ status, week_num:", status, week_num);
-
 				if (!status) noStatusCnt++;
-
 				return (
 					<div
 						key={date}
