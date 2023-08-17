@@ -15,6 +15,7 @@ const fetchData = async (): Promise<SearchProduct[]> => {
 				cache: "no-store", // same as SSR
 			}
 		);
+
 		const res = data.json();
 		return res;
 	} catch (err) {
@@ -25,6 +26,8 @@ const fetchData = async (): Promise<SearchProduct[]> => {
 export default async function Home() {
 	// const [first, setfirst] = useState()
 	const products = await fetchData();
+	console.log(products[0].discount_price_appeal_contents);
+	// console.log(products)
 	return (
 		<main className={styles.main}>
 			<section>
@@ -65,18 +68,26 @@ export default async function Home() {
 								<div>
 									{/* this needs to be fixed */}
 									{
-										<div
-											dangerouslySetInnerHTML={{ __html: item.price_unit }}
-										/>
+										<div>
+											<div
+												dangerouslySetInnerHTML={{ __html: item.price_unit }}
+											/>
+										</div>
 									}
-									{item.price_unit}
+									{/* {item.price_unit} */}
 								</div>
 
 								{/* price */}
 								{parseInt(item.discount_price.replace(",", ""), 10) > 0 ? (
 									<>
-										<p>{item.base_price}</p>
-										<p>{item.discount_price_appeal_contents}</p>
+										<div
+											dangerouslySetInnerHTML={{ __html: item.base_price }}
+										/>
+										<div
+											dangerouslySetInnerHTML={{
+												__html: item.discount_price_appeal_contents,
+											}}
+										/>
 									</>
 								) : (
 									<p>{item.base_price}円〜</p>
