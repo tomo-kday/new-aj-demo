@@ -1,10 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { SearchProduct } from "../types/api/searchProduct";
-import { Routes } from "../constants";
-import FavoriteButton from "../components/common/favoriteButton/favoriteButton";
-import Stars from "../components/common/stars/stars";
-import Calendar from "../components/calendar/calendar";
+import { SearchProduct } from "@/types/api/searchProduct";
+import { Routes } from "@/constants";
+import FavoriteButton from "@/components/common/favoriteButton/favoriteButton";
+import Stars from "@/components/common/stars/stars";
+import Calendar from "@/components/calendar/calendar";
 
 // since this data is not cached, this function will fire on user’s request every time.
 const fetchData = async (): Promise<SearchProduct[]> => {
@@ -18,6 +18,7 @@ const fetchData = async (): Promise<SearchProduct[]> => {
 		const res = data.json();
 		return res;
 	} catch (err) {
+		console.log("🚀 ~ file: page.tsx:22 ~ fetchData ~ err:", err);
 		throw new Error("error happened on server");
 	}
 };
@@ -29,7 +30,11 @@ export default async function Home() {
 		<main className={styles.main}>
 			<section>
 				{products.map((item) => (
-					<div className={styles.container} key={item.plan_id}>
+					<div
+						className={styles.container}
+						key={item.plan_id}
+						data-testid="plan-card"
+					>
 						{/* header */}
 						<a href={`${Routes.SITE.BASEURL}/publish/plan/${item.plan_id}`}>
 							{item.plan_name}
