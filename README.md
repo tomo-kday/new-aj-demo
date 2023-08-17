@@ -3,6 +3,10 @@
 `$ pnpm i`
 `$ pnpm dev`
 
+# how to run e2e tests
+
+`$ npx cypress open`
+
 # installation package installation
 
 https://prettier.io/docs/en/install
