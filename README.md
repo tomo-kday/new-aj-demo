@@ -7,7 +7,9 @@
 
 `$ npx cypress open`
 
-# installation package installation
+# Everything below is a future reference for me so Please do not run any of those.
+
+## installation package installation
 
 https://prettier.io/docs/en/install
 
