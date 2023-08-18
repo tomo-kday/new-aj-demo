@@ -13,6 +13,7 @@ export default function FavoriteButton() {
 				data
 			);
 		} catch (err) {
+			console.log("🚀 ~ file: favoriteButton.tsx:16 ~ handleClick ~ err:", err);
 			throw new Error("error happened on server");
 		}
 	}, []);
