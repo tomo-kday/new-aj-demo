@@ -25,23 +25,11 @@ import Link from "next/link";
 // 	}
 // };
 
-// const fetchDataISR = async (): Promise<SearchProduct[]> => {
-// 	try {
-// 		const data = await fetch(
-// 			"https://gd.activityjapan.com/get_search/plans?uri=/search/okina",
-// 			{ next: { revalidate: 3600 } }
-// 		);
-// 		const res = data.json();
-// 		return res;
-// 	} catch (err) {
-// 		throw new Error("error happened on server");
-// 	}
-// };
-
-const fetchDataSSG = async (): Promise<SearchProduct[]> => {
+const fetchDataISR = async (): Promise<SearchProduct[]> => {
 	try {
 		const data = await fetch(
-			"https://gd.activityjapan.com/get_search/plans?uri=/search/okina"
+			"https://gd.activityjapan.com/get_search/plans?uri=/search/okina",
+			{ next: { revalidate: 3600 } }
 		);
 		const res = data.json();
 		return res;
@@ -50,9 +38,21 @@ const fetchDataSSG = async (): Promise<SearchProduct[]> => {
 	}
 };
 
+// const fetchDataSSG = async (): Promise<SearchProduct[]> => {
+// 	try {
+// 		const data = await fetch(
+// 			"https://gd.activityjapan.com/get_search/plans?uri=/search/okina"
+// 		);
+// 		const res = data.json();
+// 		return res;
+// 	} catch (err) {
+// 		throw new Error("error happened on server");
+// 	}
+// };
+
 export default async function Home() {
 	// const [first, setfirst] = useState()
-	const products = await fetchDataSSG();
+	const products = await fetchDataISR();
 	return (
 		<main className={styles.main}>
 			<section>
@@ -76,7 +76,6 @@ export default async function Home() {
 									height={198}
 									priority
 								/>
-
 								<FavoriteButton />
 							</div>
 							<div className={styles.rightComponent}>
