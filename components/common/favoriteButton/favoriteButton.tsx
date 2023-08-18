@@ -2,11 +2,19 @@
 
 import { useCallback } from "react";
 import styles from "./favoriteButton.module.css";
+import { Routes } from "@/constants";
 
 export default function FavoriteButton() {
-	const handleClick = useCallback(() => {
-		console.log("click got called here");
-		// post API here
+	const handleClick = useCallback(async () => {
+		try {
+			const data = await fetch(`${Routes.SITE.BASEURL}${Routes.API.SEARCH}`);
+			console.log(
+				"🚀 ~ file: favoriteButton.tsx:13 ~ handleClick ~ data:",
+				data
+			);
+		} catch (err) {
+			throw new Error("error happened on server");
+		}
 	}, []);
 	return (
 		<button className={styles.btn} onClick={handleClick}>

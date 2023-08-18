@@ -1,6 +1,6 @@
 export const Routes = {
 	SITE: {
-		BASEURL: "https://activityjapan.com",
+		BASEURL: "http://localhost:3000",
 		HOME: "/",
 		PLAN: "/publish/plan",
 	},

@@ -7,14 +7,41 @@ import Stars from "@/components/common/stars/stars";
 import Calendar from "@/components/calendar/calendar";
 import Link from "next/link";
 
+// https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating
+
 // since this data is not cached, this function will fire on user’s request every time.
-const fetchData = async (): Promise<SearchProduct[]> => {
+// const fetchDataSSR = async (): Promise<SearchProduct[]> => {
+// 	try {
+// 		const data = await fetch(
+// 			"https://gd.activityjapan.com/get_search/plans?uri=/search/okina",
+// 			{
+// 				cache: "no-store", // same as SSR
+// 			}
+// 		);
+// 		const res = data.json();
+// 		return res;
+// 	} catch (err) {
+// 		throw new Error("error happened on server");
+// 	}
+// };
+
+// const fetchDataISR = async (): Promise<SearchProduct[]> => {
+// 	try {
+// 		const data = await fetch(
+// 			"https://gd.activityjapan.com/get_search/plans?uri=/search/okina",
+// 			{ next: { revalidate: 3600 } }
+// 		);
+// 		const res = data.json();
+// 		return res;
+// 	} catch (err) {
+// 		throw new Error("error happened on server");
+// 	}
+// };
+
+const fetchDataSSG = async (): Promise<SearchProduct[]> => {
 	try {
 		const data = await fetch(
-			"https://gd.activityjapan.com/get_search/plans?uri=/search/okina",
-			{
-				cache: "no-store", // same as SSR
-			}
+			"https://gd.activityjapan.com/get_search/plans?uri=/search/okina"
 		);
 		const res = data.json();
 		return res;
@@ -25,7 +52,7 @@ const fetchData = async (): Promise<SearchProduct[]> => {
 
 export default async function Home() {
 	// const [first, setfirst] = useState()
-	const products = await fetchData();
+	const products = await fetchDataSSG();
 	return (
 		<main className={styles.main}>
 			<section>
