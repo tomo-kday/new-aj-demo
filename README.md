@@ -17,7 +17,7 @@ https://typicode.github.io/husky/getting-started.html
 `$ pnpm add --save-dev --save-exact prettier`
 `$ pnpm dlx husky-init && pnpm install`
 `$ pnpm add -D lint-staged`
-`$ npx husky add .husky/pre-commit "npx lint-staged"`
+`$ npx husky add .husky/pre-commit "pnpm lint-staged"`
 `$ npx husky add .husky/pre-push "pnpm build`
 `$ npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'`
 
