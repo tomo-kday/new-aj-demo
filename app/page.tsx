@@ -7,6 +7,8 @@ import Stars from "@/components/common/stars/stars";
 import Calendar from "@/components/calendar/calendar";
 import Link from "next/link";
 
+// official documentation of these 3 data fetching methods below
+
 // https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating
 
 // since this data is not cached, this function will fire on user’s request every time.
