@@ -6,6 +6,7 @@ import FavoriteButton from "@/components/common/favoriteButton/favoriteButton";
 import Stars from "@/components/common/stars/stars";
 import Calendar from "@/components/calendar/calendar";
 import Link from "next/link";
+import { PrimaryTypographyH1 } from "@/components/ui/H1TypoGraphy/PrimaryTypographyH1";
 
 // official documentation of these 3 data fetching methods below
 
@@ -33,7 +34,7 @@ const fetchDataISR = async (): Promise<SearchProduct[]> => {
 			"https://gd.activityjapan.com/get_search/plans?uri=/search/okina",
 			{ next: { revalidate: 3600 } }
 		);
-		const res = data.json();
+		const res: SearchProduct[] = await data.json();
 		return res;
 	} catch (err) {
 		throw new Error("error happened on server");
@@ -65,8 +66,9 @@ export default async function Home() {
 							key={item.plan_id}
 							href={`${Routes.SITE.PLAN}/${item.plan_id}`}
 							data-test-id="plan-link"
+							passHref
 						>
-							{item.plan_name}
+							<PrimaryTypographyH1>{item.plan_name}</PrimaryTypographyH1>
 						</Link>
 						<div className={styles.innerContainer}>
 							<div className={styles.leftContainer}>

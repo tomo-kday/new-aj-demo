@@ -1,3 +1,4 @@
+// https://eslint.org/docs/latest/use/getting-started
 {
 	"extends": [
 		"next",
@@ -5,12 +6,22 @@
 		"eslint:recommended",
 		"prettier",
 		"plugin:cypress/recommended"
+		// "plugin:@typescript-eslint/recommended-type-checked"
 	],
+	// "parser": "@typescript-eslint/parser",
+	// "parserOptions": {
+	// 	"project": true,
+	// 	"tsconfigRootDir": "./tsconfig.json"
+	// },
 	"globals": {
 		"React": "readonly"
 	},
 	"rules": {
 		// personal custom which allows you to prefix variables with an underscore _ if you have declared them but not used them in the code.
 		"no-unused-vars": [2, { "args": "after-used", "argsIgnorePattern": "^_" }]
+		// "@typescript-eslint/naming-convention": [
+		// 	"warn",
+		// 	{ "selector": "interface", "format": null }
+		// ]
 	}
 }

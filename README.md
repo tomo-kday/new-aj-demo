@@ -9,6 +9,13 @@
 
 # Everything below is a future reference for me so Please do not run any of those.
 
+# ESlint
+
+https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/naming-convention.md
+https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/filename-case.md
+https://typescript-eslint.io/rules/naming-convention/
+https://typescript-eslint.io/getting-started/
+
 ## installation package installation
 
 https://prettier.io/docs/en/install
