@@ -6,7 +6,7 @@ import FavoriteButton from "@/components/common/favoriteButton/favoriteButton";
 import Stars from "@/components/common/stars/stars";
 import Calendar from "@/components/calendar/calendar";
 import Link from "next/link";
-import { PrimaryTypographyH1 } from "@/components/ui/H1TypoGraphy/H1TypoGraphy";
+import { PrimaryTypographyH1 } from "@/components/ui/H1TypoGraphy/PrimaryTypographyH1";
 
 // official documentation of these 3 data fetching methods below
 
