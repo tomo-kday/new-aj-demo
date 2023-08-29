@@ -45,7 +45,7 @@ export default function MonthlyCalendar() {
 					{/* Render your calendar data here */}
 					{/* For example: */}
 					<ul>
-						{data.dates.map((date) => (
+						{data.dates.map((date: string) => (
 							<li key={date}>{date}</li>
 						))}
 					</ul>
